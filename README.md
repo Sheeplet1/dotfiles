@@ -34,3 +34,11 @@ First, clone and checkout the dotfiles repo in your $HOME directory using git:
 then use GNU stow to create symlinks:
 
 > stow .
+
+# NvChad
+
+For setting up a brand new neovim config:
+
+> git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+>
+> cd ~/dotfiles && stow .
