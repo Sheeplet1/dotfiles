@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "loading sketchybar configuration..."
+
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
@@ -70,10 +72,11 @@ source "$ITEM_DIR/yabai.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # Center
-source "$ITEM_DIR/spotify.sh"
-# source "$ITEM_DIR/media.sh"
+# source "$ITEM_DIR/spotify.sh"
+# source "$ITEM_DIR/media_felix.sh"
 
 # Right
+# source "$ITEM_DIR/media_josean.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/brew.sh"
 source "$ITEM_DIR/github.sh"
