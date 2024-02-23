@@ -1,7 +1,7 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
 
 local servers = {
   "pyright",
@@ -12,13 +12,16 @@ local servers = {
   "tsserver",
   "eslint",
   "tailwindcss",
+
+  -- Bash
+  "bashls",
 }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig[lsp].setup({
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
 end
 
 -- Organise Imports --
@@ -31,7 +34,7 @@ local function organise_imports()
 end
 
 -- FRONTEND --
-lspconfig.tsserver.setup {
+lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -45,9 +48,9 @@ lspconfig.tsserver.setup {
       description = "Organise Imports",
     },
   },
-}
+})
 
-lspconfig.eslint.setup {
+lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
@@ -70,4 +73,4 @@ lspconfig.eslint.setup {
     ".eslintrc.yaml",
     "package.json"
   ),
-}
+})
