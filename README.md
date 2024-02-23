@@ -29,6 +29,7 @@ Linux (Debian):
 First, clone and checkout the dotfiles repo in your $HOME directory using git:
 
 > git clone git@github.com/Sheeplet1/dotfiles.git
+>
 > cd dotfiles
 
 then use GNU stow to create symlinks:
