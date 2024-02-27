@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Drawing onto the battery"
+
 battery=(
   script="$PLUGIN_DIR/battery.sh"
   icon.font="$FONT:Regular:19.0"
