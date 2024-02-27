@@ -113,8 +113,8 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias home="cd ~"
-# alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias nvimconfig="cd '$HOME/.config/nvim/lua/custom/'"
+alias connect3d="ssh biqu@192.168.20.22"
 if [[ `uname` == "Darwin" ]]; then
   alias onedrive_uni="cd '/Users/huananthonydo/OneDrive - UNSW/2023/T3/'"
   alias personal="cd '/Users/huananthonydo/Documents/code/'"
