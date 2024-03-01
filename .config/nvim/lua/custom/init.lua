@@ -1,6 +1,24 @@
 vim.opt.colorcolumn = "80"
 vim.wo.relativenumber = true
-vim.o.cmdheight = 1
+
+-- sync clipboard between OS and neovim
+vim.o.clipboard = "unnamedplus"
+
+-- enable break indent
+vim.o.breakindent = true
+
+-- save undo history
+vim.o.undofile = true
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noselect"
+
+-- Set terminal gui colors to true
+vim.o.termguicolors = true
 
 -- resize nvimtree if window got resized
 function NvimTree_width_ratio(percentage)
@@ -31,24 +49,3 @@ autocmd("TextYankPost", {
     })
   end,
 })
-
--- You will likely want to reduce updatetime which affects CursorHold
--- note: this setting is global and should be set only once
--- vim.o.updatetime = 250
--- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
---   group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
---   callback = function()
---     vim.diagnostic.open_float(nil, { focus = false })
---   end,
--- })
---
--- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
---   group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
---   callback = function()
---     vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
---   end,
--- })
-
--- vim.diagnostic.config {
---   virtual_text = false,
--- }

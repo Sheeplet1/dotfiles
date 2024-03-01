@@ -133,7 +133,7 @@ M.harpoon = {
   n = {
     ["<leader>h"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
       "[harpoon] Toggle UI",
@@ -141,7 +141,7 @@ M.harpoon = {
     -- ["<leader>h"] = { "<cmd>Telescope harpoon marks<cr>", "[harpoon] Toggle UI" },
     ["<leader>ha"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon:list():append()
       end,
       "[harpoon] Add file",
@@ -149,35 +149,35 @@ M.harpoon = {
 
     ["<leader>1"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon:list():select(1)
       end,
       "[harpoon] Navigate to file 1",
     },
     ["<leader>2"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon:list():select(2)
       end,
       "[harpoon] Navigate to file 2",
     },
     ["<leader>3"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon:list():select(3)
       end,
       "[harpoon] Navigate to file 3",
     },
     ["<leader>4"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon:list():select(4)
       end,
       "[harpoon] Navigate to file 4",
     },
     ["<leader>5"] = {
       function()
-        local harpoon = require "harpoon"
+        local harpoon = require("harpoon")
         harpoon:list():select(5)
       end,
       "[harpoon] Navigate to file 5",
@@ -193,6 +193,15 @@ M.undotree = {
     ["<leader>ut"] = {
       "<cmd> UndotreeToggle<CR>",
       "Open Undo Tree",
+    },
+  },
+}
+
+M.telescope = {
+  n = {
+    ["<leader>fg"] = {
+      "<cmd>lua require('telescope.builtin').live_grep()<cr>",
+      "[Telescope] Live grep",
     },
   },
 }

@@ -4,8 +4,8 @@ local plugins = {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require "dap"
-      local dapui = require "dapui"
+      local dap = require("dap")
+      local dapui = require("dapui")
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -22,8 +22,8 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("core.utils").load_mappings "dap"
-      require "custom.configs.dap"
+      require("core.utils").load_mappings("dap")
+      require("custom.configs.dap")
     end,
   },
 
@@ -39,8 +39,8 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end,
   },
 
@@ -86,7 +86,7 @@ local plugins = {
       "williamboman/mason.nvim",
     },
     config = function()
-      require "custom.configs.mason-lspconfig"
+      require("custom.configs.mason-lspconfig")
     end,
   },
 
@@ -114,6 +114,14 @@ local plugins = {
     },
   },
 
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    lazy = "VeryLazy",
+    config = function()
+      require("telescope").load_extension("ui-select")
+    end,
+  },
+
   ------------------------------ custom plugins ------------------------------
 
   -- lsp configuration
@@ -121,7 +129,7 @@ local plugins = {
     "nvimtools/none-ls.nvim",
     lazy = false,
     opts = function()
-      return require "custom.configs.none-ls"
+      return require("custom.configs.none-ls")
     end,
   },
 
@@ -129,11 +137,11 @@ local plugins = {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-      require("lspsaga").setup {
+      require("lspsaga").setup({
         lightbulb = {
           virtual_text = false,
         },
-      }
+      })
     end,
   },
 
@@ -150,7 +158,7 @@ local plugins = {
     version = "*",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup {}
+      require("nvim-surround").setup({})
     end,
   },
 
@@ -183,7 +191,7 @@ local plugins = {
     "folke/zen-mode.nvim",
     lazy = false,
     config = function()
-      require "custom.configs.zen-mode"
+      require("custom.configs.zen-mode")
     end,
   },
 
@@ -214,7 +222,7 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      local harpoon = require "harpoon"
+      local harpoon = require("harpoon")
       harpoon:setup()
     end,
   },
@@ -224,7 +232,7 @@ local plugins = {
     "ray-x/lsp_signature.nvim",
     event = "LspAttach",
     config = function()
-      require("lsp_signature").setup {}
+      require("lsp_signature").setup({})
     end,
   },
 
@@ -233,7 +241,7 @@ local plugins = {
     "nvim-telescope/telescope-ui-select.nvim",
     event = "VeryLazy",
     config = function()
-      require("telescope").load_extension "ui-select"
+      require("telescope").load_extension("ui-select")
     end,
   },
 
@@ -251,9 +259,9 @@ local plugins = {
   {
     "andreadev-it/shade.nvim",
     config = function()
-      require("shade").setup {
+      require("shade").setup({
         exclude_filetypes = { "NvimTree" },
-      }
+      })
     end,
   },
 
@@ -269,7 +277,7 @@ local plugins = {
     version = "^4", -- Recommended
     ft = { "rust" },
     config = function()
-      require "custom.configs.rustaceanvim"
+      require("custom.configs.rustaceanvim")
     end,
   },
 
@@ -277,13 +285,13 @@ local plugins = {
     "saecki/crates.nvim",
     ft = { "toml" },
     config = function(_, opts)
-      local crates = require "crates"
+      local crates = require("crates")
       crates.setup(opts)
-      require("cmp").setup.buffer {
+      require("cmp").setup.buffer({
         sources = { { name = "crates" } },
-      }
+      })
       crates.show()
-      require("core.utils").load_mappings "crates"
+      require("core.utils").load_mappings("crates")
     end,
   },
 
