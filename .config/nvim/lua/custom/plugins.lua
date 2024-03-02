@@ -247,14 +247,14 @@ local plugins = {
   },
 
   -- smooth scroll
-  {
-    "karb94/neoscroll.nvim",
-    lazy = false,
-    keys = { "<C-d>", "<C-u>" },
-    config = function()
-      require("custom.configs.neoscroll")
-    end,
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   lazy = false,
+  --   keys = { "<C-d>", "<C-u>" },
+  --   config = function()
+  --     require("custom.configs.neoscroll")
+  --   end,
+  -- },
 
   -- dim inactive buffers
   {
