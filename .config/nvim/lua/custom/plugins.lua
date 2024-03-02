@@ -52,6 +52,7 @@ local plugins = {
         "pyright",
         "debugpy",
         "mypy",
+        "ruff",
         "black",
         "isort",
 
@@ -62,9 +63,6 @@ local plugins = {
         -- Lua Formatting --
         "lua-language-server",
         "stylua",
-
-        -- bash
-        "shfmt",
 
         -- WebDev --
         "typescript-language-server",
@@ -135,6 +133,7 @@ local plugins = {
     end,
   },
 
+  -- enhanced lsp experience
   {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
@@ -253,7 +252,7 @@ local plugins = {
     lazy = false,
     keys = { "<C-d>", "<C-u>" },
     config = function()
-      require("neoscroll").setup()
+      require("custom.configs.neoscroll")
     end,
   },
 
