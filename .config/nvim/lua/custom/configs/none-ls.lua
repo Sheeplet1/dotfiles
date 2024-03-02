@@ -19,7 +19,6 @@ local opts = {
 
     -- Python
     diagnostics.mypy,
-    diagnostics.ruff,
     formatting.isort.with({
       filetypes = {
         "python",

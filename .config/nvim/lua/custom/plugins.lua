@@ -52,7 +52,6 @@ local plugins = {
         "pyright",
         "debugpy",
         "mypy",
-        "ruff",
         "black",
         "isort",
 
@@ -63,6 +62,9 @@ local plugins = {
         -- Lua Formatting --
         "lua-language-server",
         "stylua",
+
+        -- bash
+        "shfmt",
 
         -- WebDev --
         "typescript-language-server",
@@ -172,7 +174,7 @@ local plugins = {
   -- open markdown in browser
   {
     "iamcco/markdown-preview.nvim",
-    lazy = false,
+    ft = "markdown",
     build = "cd app && npm install",
     opts = {},
     config = function()
