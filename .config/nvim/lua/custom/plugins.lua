@@ -71,6 +71,12 @@ local plugins = {
         "html-lsp",
         "eslint-lsp",
         "js-debug-adapter",
+
+        -- Go
+        "gopls",
+        "gofumpt",
+        "goimports-reviser",
+        "golines",
       },
     },
 
@@ -107,6 +113,7 @@ local plugins = {
         "rust",
         "markdown",
         "markdown_inline",
+        "go",
       },
     },
     dependencies = {
@@ -301,6 +308,19 @@ local plugins = {
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
+    end,
+  },
+
+  ------------------------------------ go ------------------------------------
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+      require("core.utils").load_mappings("gopher")
+    end,
+    build = function()
+      vim.cmd([[silent! GoInstallDeps]])
     end,
   },
 }

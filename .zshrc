@@ -125,7 +125,7 @@ if [[ `uname` == "Darwin" ]]; then
   alias onedrive="cd '/mnt/c/Users/Anthony/OneDrive - UNSW/2023/T3/'"
   alias personal="cd '/home/anthony/code/personal/'"
   alias uni="cd '/home/anthony/code/uni/'"
-  alias open="explorer.exe"
+  alias open="/mnt/c/Windows/explorer.exe"
 fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
