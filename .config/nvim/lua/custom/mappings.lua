@@ -11,8 +11,8 @@ M.general = {
     -- QOL --
     ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
     ["<leader>p"] = { '<cmd> "_dp', "Replace without yank" },
-    ["<C-d>"] = { "<C-d>zz", "Centre screen while half page jumping" },
-    ["<C-u>"] = { "<C-u>zz", "Centre screen while half page jumping" },
+    -- ["<C-d>"] = { "<C-d>zz", "Centre screen while half page jumping" },
+    -- ["<C-u>"] = { "<C-u>zz", "Centre screen while half page jumping" },
     ["n"] = { "nzzzv", "Search terms stay centred" },
     ["N"] = { "Nzzzv", "Search terms stay centred" },
     ["<leader>y"] = { '"+y', "Yank into system clipboard" },

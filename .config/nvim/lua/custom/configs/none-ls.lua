@@ -18,18 +18,14 @@ local opts = {
     formatting.shfmt,
 
     -- Python
-    diagnostics.mypy,
-    diagnostics.ruff,
-    formatting.isort.with({
-      filetypes = {
-        "python",
-      },
-    }),
-    formatting.black.with({
-      filetypes = {
-        "python",
-      },
-    }),
+    diagnostics.mypy.with({ filtypes = { "python" } }),
+    formatting.isort.with({ filetypes = { "python" } }),
+    formatting.black.with({ filetypes = { "python" } }),
+
+    -- Go
+    formatting.gofumpt.with({ filetypes = { "go " } }),
+    formatting.goimports_reviser.with({ filetypes = { "go" } }),
+    formatting.golines.with({ filetypes = { "go" } }),
   },
 
   -- Autoformat on save --

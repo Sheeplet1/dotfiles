@@ -8,6 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -124,7 +125,7 @@ if [[ `uname` == "Darwin" ]]; then
   alias onedrive="cd '/mnt/c/Users/Anthony/OneDrive - UNSW/2023/T3/'"
   alias personal="cd '/home/anthony/code/personal/'"
   alias uni="cd '/home/anthony/code/uni/'"
-  alias open="explorer.exe"
+  alias open="/mnt/c/Windows/explorer.exe"
 fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
