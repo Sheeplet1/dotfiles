@@ -1,6 +1,6 @@
-require("zen-mode").setup {
+require("zen-mode").setup({
   window = {
-    width = 150,
+    width = 90,
     height = 1,
     backdrop = 0.93,
   },
@@ -15,4 +15,4 @@ require("zen-mode").setup {
 
     gitsigns = { enabled = true }, -- disables git signs
   },
-}
+})
