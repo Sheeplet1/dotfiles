@@ -173,19 +173,19 @@ local plugins = {
   -- pretty diagnostics panel
   {
     "folke/trouble.nvim",
-    lazy = false,
+    cmd = "Trouble",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- open markdown in browser
   {
     "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    build = "cd app && npm install",
-    opts = {},
-    config = function()
-      vim.fn["mkdp#util#install"]()
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
     end,
+    ft = { "markdown" },
   },
 
   -- sync vim keybinds with tmux panels
@@ -197,7 +197,7 @@ local plugins = {
   -- distraction-free coding
   {
     "folke/zen-mode.nvim",
-    lazy = false,
+    cmd = "ZenMode",
     config = function()
       require("custom.configs.zen-mode")
     end,
@@ -206,7 +206,7 @@ local plugins = {
   -- ui for git commands
   {
     "kdheepak/lazygit.nvim",
-    lazy = false,
+    cmd = "LazyGit",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -312,16 +312,30 @@ local plugins = {
   },
 
   ------------------------------------ go ------------------------------------
+  -- {
+  --   "olexsmir/gopher.nvim",
+  --   ft = "go",
+  --   config = function(_, opts)
+  --     require("gopher").setup(opts)
+  --     require("core.utils").load_mappings("gopher")
+  --   end,
+  --   build = function()
+  --     vim.cmd([[silent! GoInstallDeps]])
+  --   end,
+  -- },
   {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-      require("core.utils").load_mappings("gopher")
+    "ray-x/go.nvim",
+    dependencies = {
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
     end,
-    build = function()
-      vim.cmd([[silent! GoInstallDeps]])
-    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 }
 
