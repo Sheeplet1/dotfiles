@@ -129,7 +129,7 @@ if [[ `uname` == "Darwin" ]]; then
 fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+  exec tmux attach || exec tmux new-session
 fi
 
 eval "$(zoxide init zsh)"
