@@ -39,6 +39,7 @@ local function organise_imports()
 end
 
 ----------------------------------- frontend -----------------------------------
+
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -83,6 +84,8 @@ lspconfig.eslint.setup({
 -------------------------------------- go --------------------------------------
 
 lspconfig.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
