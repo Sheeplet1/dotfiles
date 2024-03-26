@@ -128,8 +128,9 @@ if [[ `uname` == "Darwin" ]]; then
   alias open="/mnt/c/Windows/explorer.exe"
 fi
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux attach || exec tmux new-session
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; 
+then
+  tmux attach 2>/dev/null || tmux
 fi
 
 eval "$(zoxide init zsh)"
