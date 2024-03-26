@@ -263,22 +263,6 @@ local plugins = {
   --   end,
   -- },
 
-  -- dim inactive buffers
-  {
-    "andreadev-it/shade.nvim",
-    config = function()
-      require("shade").setup({
-        exclude_filetypes = { "NvimTree" },
-      })
-    end,
-  },
-
-  -- undotree
-  {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
-  },
-
   ----------------------------------- rust -----------------------------------
   {
     "mrcjkb/rustaceanvim",
