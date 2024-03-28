@@ -263,6 +263,12 @@ local plugins = {
   --   end,
   -- },
 
+  -- undo tree
+  {
+    "mbbill/undotree",
+    cmd = "UndotreeToggle",
+  },
+
   ----------------------------------- rust -----------------------------------
   {
     "mrcjkb/rustaceanvim",
