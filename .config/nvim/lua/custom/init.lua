@@ -27,6 +27,7 @@ function NvimTree_width_ratio(percentage)
   return width
 end
 
+-- Resizes neotree dynamically
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = vim.api.nvim_create_augroup("NvimTreeResize", { clear = true }),
   callback = function()
