@@ -14,7 +14,17 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Mocha"
+
+config.font = wezterm.font("JetBrains Mono")
+
 config.max_fps = 120
+
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
+}
 
 -- and finally, return the configuration to wezterm
 return config
