@@ -36,10 +36,23 @@ then use GNU stow to create symlinks:
 
 > stow .
 
+## Creating New Symlinks
+
+Mimic the path from the home directory to the desired file/folder to create 
+a symlink of in the `dotfiles` folder.
+
+Copy the contents of that file/folder into the `dotfiles` equivalent.
+
+> stow .
+
 # NvChad
 
-For setting up a brand new neovim config:
+For setting up a brand new Neovim config:
 
 > git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
->
+
+Then delete the necessary folders to create symlinks.
+
 > cd ~/dotfiles && stow .
+
+
