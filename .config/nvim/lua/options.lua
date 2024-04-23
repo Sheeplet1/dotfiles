@@ -1,7 +1,5 @@
 require "nvchad.options"
 
--- add yours here!
-
 vim.opt.colorcolumn = "80"
 
 -- relative numbers
@@ -25,6 +23,8 @@ vim.o.completeopt = "menuone,noselect"
 
 -- set terminal gui colors to true
 vim.o.termguicolors = true
+
+vim.o.scrolloff = 5
 
 ------------------------------ Resizing NvimTree -------------------------------
 function NvimTree_width_ratio(percentage)
