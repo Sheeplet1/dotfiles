@@ -34,8 +34,8 @@ map("n", "<leader>q", ":q!<CR>", { desc = "Quit file without saving" })
 map("n", "Y", "y$", { desc = "Yank till the end of the line" })
 map("n", "D", "d$", { desc = "Delete till the end of the line" })
 map("n", "C", "c$", { desc = "Change till the end of the line" })
-map("n", "S", "0", { desc = "Go to the start of the line" })
-map("n", "E", "$", { desc = "Go to the end of the line" })
+map("n", "H", "0", { desc = "Go to the start of the line" })
+map("n", "L", "$", { desc = "Go to the end of the line" })
 
 -- comment headers and blocks
 map(
@@ -57,6 +57,11 @@ map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move the selected lines up" })
 map("v", "<leader>y", '"+y', { desc = "Yank into system clipboard" })
 map("v", "<leader>d", '<cmd "_d', { desc = "Delete without yanking" })
+
+--------------------------------- insert mode ----------------------------------
+
+map("i", "jk", "<Esc>", { desc = "jk to escape" })
+map("i", "kj", "<Esc>", { desc = "kj to escape" })
 
 -------------------------------- tmux navigator --------------------------------
 
