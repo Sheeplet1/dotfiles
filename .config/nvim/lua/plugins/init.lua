@@ -1,46 +1,18 @@
-local plugins = {
-  --------------------------------- nvim-dap ---------------------------------
+return {
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    "stevearc/conform.nvim",
+    event = "BufWritePre", -- uncomment for format on save
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+      require "configs.conform"
     end,
   },
 
-  {
-    "mfussenegger/nvim-dap",
-    config = function()
-      require("core.utils").load_mappings("dap")
-      require("custom.configs.dap")
-    end,
-  },
-
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    lazy = false,
-    config = function(_, opts)
-      require("nvim-dap-virtual-text").setup()
-    end,
-  },
-
-  ----------------------------- default plugins ------------------------------
+  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("plugins.configs.lspconfig")
-      require("custom.configs.lspconfig")
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
     end,
   },
 
@@ -48,7 +20,6 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        -- Python --
         "pyright",
         "debugpy",
         "mypy",
@@ -56,15 +27,12 @@ local plugins = {
         "black",
         "isort",
 
-        -- Formatting --
         "prettier",
         "prettierd",
 
-        -- Lua Formatting --
         "lua-language-server",
         "stylua",
 
-        -- WebDev --
         "typescript-language-server",
         "tailwindcss-language-server",
         "css-lsp",
@@ -72,88 +40,39 @@ local plugins = {
         "eslint-lsp",
         "js-debug-adapter",
 
-        -- Go
         "gopls",
         "gofumpt",
         "goimports-reviser",
         "golines",
       },
     },
-
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-  },
-
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "williamboman/mason.nvim",
-    },
-    config = function()
-      require("custom.configs.mason-lspconfig")
-    end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "python",
-        "html",
-        "javascript",
-        "css",
         "vim",
-        "tsx",
-        "typescript",
-        "vue",
-        "json",
+        "vimdoc",
         "lua",
-        "rust",
+
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+
+        "json",
         "markdown",
         "markdown_inline",
+
         "go",
+        "rust",
       },
     },
-    dependencies = {
-      { "windwp/nvim-ts-autotag", opts = {} },
-    },
   },
 
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    lazy = "VeryLazy",
-    config = function()
-      require("telescope").load_extension("ui-select")
-    end,
-  },
-
-  ------------------------------ custom plugins ------------------------------
-
-  -- lsp configuration
-  {
-    "nvimtools/none-ls.nvim",
-    lazy = false,
-    opts = function()
-      return require("custom.configs.none-ls")
-    end,
-  },
-
-  -- enhanced lsp experience
-  {
-    "nvimdev/lspsaga.nvim",
-    event = "LspAttach",
-    config = function()
-      require("lspsaga").setup({
-        lightbulb = {
-          virtual_text = false,
-        },
-      })
-    end,
-  },
-
-  -- expand comment functionality
+  --------------------------------- my plugins ---------------------------------
+  -- expand on comment functionality
   {
     "folke/todo-comments.nvim",
     lazy = false,
@@ -161,12 +80,26 @@ local plugins = {
     opts = {},
   },
 
+  -- enhanced lsp experience
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup {
+        lightbulb = {
+          virtual_text = false,
+        },
+      }
+    end,
+  },
+
+  -- surround text object functionality
   {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({})
+      require("nvim-surround").setup {}
     end,
   },
 
@@ -199,7 +132,7 @@ local plugins = {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     config = function()
-      require("custom.configs.zen-mode")
+      require "configs.zen-mode"
     end,
   },
 
@@ -218,7 +151,7 @@ local plugins = {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("custom.configs.copilot")
+      require "configs.copilot"
     end,
   },
 
@@ -229,10 +162,6 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    config = function()
-      local harpoon = require("harpoon")
-      harpoon:setup()
-    end,
   },
 
   -- shows function hints while typing
@@ -240,7 +169,7 @@ local plugins = {
     "ray-x/lsp_signature.nvim",
     event = "LspAttach",
     config = function()
-      require("lsp_signature").setup({})
+      require("lsp_signature").setup {}
     end,
   },
 
@@ -249,19 +178,9 @@ local plugins = {
     "nvim-telescope/telescope-ui-select.nvim",
     event = "VeryLazy",
     config = function()
-      require("telescope").load_extension("ui-select")
+      require("telescope").load_extension "ui-select"
     end,
   },
-
-  -- smooth scroll
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   lazy = false,
-  --   keys = { "<C-d>", "<C-u>" },
-  --   config = function()
-  --     require("custom.configs.neoscroll")
-  --   end,
-  -- },
 
   -- undo tree
   {
@@ -275,7 +194,7 @@ local plugins = {
     version = "^4", -- Recommended
     ft = { "rust" },
     config = function()
-      require("custom.configs.rustaceanvim")
+      require "configs.rustaceanvim"
     end,
   },
 
@@ -283,13 +202,13 @@ local plugins = {
     "saecki/crates.nvim",
     ft = { "toml" },
     config = function(_, opts)
-      local crates = require("crates")
+      local crates = require "crates"
       crates.setup(opts)
-      require("cmp").setup.buffer({
+      require("cmp").setup.buffer {
         sources = { { name = "crates" } },
-      })
+      }
       crates.show()
-      require("core.utils").load_mappings("crates")
+      require("core.utils").load_mappings "crates"
     end,
   },
 
@@ -307,12 +226,9 @@ local plugins = {
     ft = "go",
     config = function(_, opts)
       require("gopher").setup(opts)
-      require("core.utils").load_mappings("gopher")
     end,
     build = function()
-      vim.cmd([[silent! GoInstallDeps]])
+      vim.cmd [[silent! GoInstallDeps]]
     end,
   },
 }
-
-return plugins

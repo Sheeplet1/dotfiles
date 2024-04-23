@@ -1,34 +1,39 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+-- EXAMPLE
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require("lspconfig")
-local util = require("lspconfig/util")
+local util = require "lspconfig/util"
 
+local lspconfig = require "lspconfig"
 local servers = {
+  -- python
   "pyright",
 
-  -- WebDev --
+  -- frontend shenanigans
   "html",
   "cssls",
   "tsserver",
   "eslint",
   "tailwindcss",
 
-  -- Bash
+  -- bash
   "bashls",
 
   -- go
   "gopls",
 }
 
+-- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
+  lspconfig[lsp].setup {
     on_attach = on_attach,
+    on_init = on_init,
     capabilities = capabilities,
-  })
+  }
 end
 
-------------------------------- organise imports -------------------------------
+----------------------------------- frontend -----------------------------------
 
 local function organise_imports()
   local params = {
@@ -38,10 +43,10 @@ local function organise_imports()
   vim.lsp.buf.execute_command(params)
 end
 
------------------------------------ frontend -----------------------------------
-
-lspconfig.tsserver.setup({
+-- typescript
+lspconfig.tsserver.setup {
   on_attach = on_attach,
+  on_init = on_init,
   capabilities = capabilities,
   settings = {
     separate_diagnostic_server = true,
@@ -54,10 +59,10 @@ lspconfig.tsserver.setup({
       description = "Organise Imports",
     },
   },
-})
+}
 
-lspconfig.eslint.setup({
-  on_attach = function(client, bufnr)
+lspconfig.eslint.setup {
+  on_attach = function(_, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       command = "EslintFixAll",
@@ -79,11 +84,11 @@ lspconfig.eslint.setup({
     ".eslintrc.yaml",
     "package.json"
   ),
-})
+}
 
 -------------------------------------- go --------------------------------------
 
-lspconfig.gopls.setup({
+lspconfig.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "gopls" },
@@ -98,4 +103,4 @@ lspconfig.gopls.setup({
       },
     },
   },
-})
+}

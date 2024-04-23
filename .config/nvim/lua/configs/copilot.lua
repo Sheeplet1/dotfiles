@@ -1,4 +1,4 @@
-require("copilot").setup {
+local options = {
   panel = {
     auto_refresh = false,
     keymap = {
@@ -9,6 +9,7 @@ require("copilot").setup {
       open = "<M-CR>",
     },
   },
+
   suggestion = {
     auto_trigger = true,
     keymap = {
@@ -19,3 +20,5 @@ require("copilot").setup {
     },
   },
 }
+
+require("copilot").setup(options)

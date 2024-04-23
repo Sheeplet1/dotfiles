@@ -1,5 +1,9 @@
+require "nvchad.options"
+
+-- add yours here!
+
 vim.opt.colorcolumn = "80"
-vim.wo.relativenumber = true
+-- vim.o.relative.number = true
 
 -- sync clipboard between OS and neovim
 vim.o.clipboard = "unnamedplus"
@@ -10,17 +14,17 @@ vim.o.breakindent = true
 -- save undo history
 vim.o.undofile = true
 
--- Decrease update time
+-- decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
--- Set completeopt to have a better completion experience
+-- set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
--- Set terminal gui colors to true
+-- set terminal gui colors to true
 vim.o.termguicolors = true
 
--- resize nvimtree if window got resized
+------------------------------ Resizing NvimTree -------------------------------
 function NvimTree_width_ratio(percentage)
   local ratio = percentage / 100
   local width = math.floor(vim.go.columns * ratio)
@@ -44,9 +48,9 @@ autocmd("TextYankPost", {
   group = yank_group,
   pattern = "*",
   callback = function()
-    vim.highlight.on_yank({
+    vim.highlight.on_yank {
       higroup = "IncSearch",
       timeout = 40,
-    })
+    }
   end,
 })
