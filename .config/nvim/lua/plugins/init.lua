@@ -1,4 +1,5 @@
 return {
+  ------------------------------ default plugins -------------------------------
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
@@ -75,9 +76,8 @@ return {
   -- expand on comment functionality
   {
     "folke/todo-comments.nvim",
-    lazy = false,
+    event = "BufRead",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
   },
 
   -- enhanced lsp experience
@@ -85,11 +85,7 @@ return {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-      require("lspsaga").setup {
-        lightbulb = {
-          virtual_text = false,
-        },
-      }
+      require "configs.lspsaga"
     end,
   },
 
@@ -124,7 +120,7 @@ return {
   -- sync vim keybinds with tmux panels
   {
     "christoomey/vim-tmux-navigator",
-    lazy = false,
+    event = "VimEnter",
   },
 
   -- distraction-free coding
@@ -147,7 +143,6 @@ return {
 
   {
     "zbirenbaum/copilot.lua",
-    lazy = false,
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
@@ -200,15 +195,10 @@ return {
 
   {
     "saecki/crates.nvim",
-    ft = { "toml" },
-    config = function(_, opts)
-      local crates = require "crates"
-      crates.setup(opts)
-      require("cmp").setup.buffer {
-        sources = { { name = "crates" } },
-      }
-      crates.show()
-      require("core.utils").load_mappings "crates"
+    event = { "BufRead Cargo.toml" },
+    tag = "stable",
+    config = function()
+      require("crates").setup()
     end,
   },
 
