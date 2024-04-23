@@ -3,7 +3,9 @@ require "nvchad.options"
 -- add yours here!
 
 vim.opt.colorcolumn = "80"
--- vim.o.relative.number = true
+
+-- relative numbers
+vim.opt.relativenumber = true
 
 -- sync clipboard between OS and neovim
 vim.o.clipboard = "unnamedplus"
