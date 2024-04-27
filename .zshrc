@@ -62,7 +62,7 @@ if [[ `uname` == "Darwin" ]]; then
     alias uni="cd '/Users/huananthonydo/Documents/uni/'"
 
   elif [[ `uname` == "Linux" ]]; then
-    alias onedrivep="cd '/mnt/c/Users/Anthony/OneDrive/Documents/'"
+    alias onedrivep="cd '/mnt/c/Users/Anthony/OneDrive/Obsidian Vault/'"
     alias onedrive="cd '/mnt/c/Users/Anthony/OneDrive - UNSW/2023/T3/'"
     alias personal="cd '/home/anthony/code/personal/'"
     alias uni="cd '/home/anthony/code/uni/'"
