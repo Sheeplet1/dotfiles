@@ -20,7 +20,7 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 # Can choose ZSH Theme here.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download Zinit, if it's not there yet
