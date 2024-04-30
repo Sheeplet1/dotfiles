@@ -24,7 +24,13 @@ vim.o.completeopt = "menuone,noselect"
 -- set terminal gui colors to true
 vim.o.termguicolors = true
 
+-- minimum number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 5
+
+vim.o.tabstop = 2 -- TAB looks like 2 spaces
+vim.o.expandtab = true -- use spaces instead of TABs
+vim.o.softtabstop = 2 -- Number of spaces inserted instead of a TAB
+vim.o.shiftwidth = 2 -- Number of spaces when indenting
 
 ------------------------------ Resizing NvimTree -------------------------------
 function NvimTree_width_ratio(percentage)
@@ -42,7 +48,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
--- Highlight yanked group
+---------------------------- Highlight yanked group ----------------------------
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})

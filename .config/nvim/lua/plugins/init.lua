@@ -187,6 +187,7 @@ return {
   --   end,
   -- },
 
+  -- edit file system in a buffer
   {
     "stevearc/oil.nvim",
     cmd = "Oil",
