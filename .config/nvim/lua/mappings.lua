@@ -126,3 +126,12 @@ end, { desc = "Go to prev Harpoon file" })
 ----------------------------------- undotree -----------------------------------
 
 map("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "Toggle Undotree" })
+
+---------------------------------- telescope -----------------------------------
+
+-- map("n", "<C-n>", ":Telescope file_browser<CR>", { desc = "Telescope File Browser" })
+-- map("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "Telescope File Browser" })
+
+------------------------------------- oil --------------------------------------
+
+map("n", "<C-n>", "<cmd>Oil --float<CR>", { desc = "Open Oil" })
