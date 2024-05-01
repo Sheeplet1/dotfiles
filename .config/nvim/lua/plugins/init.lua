@@ -61,6 +61,7 @@ return {
         "css",
         "javascript",
         "typescript",
+        "tsx",
 
         "json",
         "markdown",
@@ -237,6 +238,15 @@ return {
     end,
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+
+  ---------------------------------- frontend ----------------------------------
+  {
+    "windwp/nvim-ts-autotag",
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    config = function()
+      require("nvim-ts-autotag").setup()
     end,
   },
 }
