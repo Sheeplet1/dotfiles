@@ -69,6 +69,14 @@ if [[ `uname` == "Darwin" ]]; then
     alias open="/mnt/c/Windows/explorer.exe"
 fi
 
+### Git Alises 
+alias gs="git status"
+alias gcl="git clone"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit -m"
+alias gd="git diff"
+
 ##################################### TMUX #####################################
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; 
