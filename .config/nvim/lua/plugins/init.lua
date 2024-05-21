@@ -179,18 +179,10 @@ return {
     end,
   },
 
-  -- file browser in telescope
-  -- {
-  --   "nvim-telescope/telescope-file-browser.nvim",
-  --   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-  --   config = function()
-  --     require("telescope").load_extension "file_browser"
-  --   end,
-  -- },
-
   -- edit file system in a buffer
   {
     "stevearc/oil.nvim",
+    event = "VeryLazy",
     cmd = "Oil",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
