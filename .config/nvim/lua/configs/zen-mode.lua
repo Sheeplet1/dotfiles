@@ -1,6 +1,6 @@
 local options = {
   window = {
-    width = 90,
+    width = 180,
     height = 1,
     backdrop = 0.93,
   },
