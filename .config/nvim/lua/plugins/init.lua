@@ -75,6 +75,9 @@ return {
 
         "shfmt",
       },
+      ui = {
+        border = "rounded",
+      },
     },
   },
 
@@ -112,14 +115,13 @@ return {
   },
 
   -- enhanced lsp experience
-  {
-    "nvimdev/lspsaga.nvim",
-    lazy = false,
-    dependencies = { "neovim/nvim-lspconfig" },
-    config = function()
-      require "configs.lspsaga"
-    end,
-  },
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "configs.lspsaga"
+  --   end,
+  -- },
 
   -- surround text object functionality
   {
@@ -192,14 +194,13 @@ return {
   },
 
   -- shows function hints while typing
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "LspAttach",
-    dependencies = { "neovim/nvim-lspconfig" },
-    config = function(_, opts)
-      require("lsp_signature").setup { opts }
-    end,
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "LspAttach",
+  --   config = function(_, opts)
+  --     require("lsp_signature").setup { opts }
+  --   end,
+  -- },
 
   -- pretty ui for code-actions mainly
   {
@@ -228,17 +229,17 @@ return {
   },
 
   -- noice ui
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = { "MunifTanjim/nui.nvim" },
-  --   config = function()
-  --     require "configs.noice"
-  --   end,
-  --   init = function()
-  --     vim.g.lsp_handlers_enabled = false
-  --   end,
-  -- },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim", "neovim/nvim-lspconfig" },
+    config = function()
+      require "configs.noice"
+    end,
+    init = function()
+      vim.g.lsp_handlers_enabled = false
+    end,
+  },
 
   ----------------------------------- rust -----------------------------------
   {

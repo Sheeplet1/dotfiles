@@ -87,10 +87,12 @@ local mappings = {
 
     ["<C-n>"] = { "<cmd>Oil --float<CR>", "Open Oil" },
 
-    -- ["K"] = {
-    --   "<cmd>Lspsaga hover_doc<CR>",
-    --   "Toggle signature",
-    -- },
+    ["<leader>lf"] = {
+      function()
+        vim.diagnostic.open_float(nil, { border = "rounded" })
+      end,
+      "Open diagnostic",
+    },
   },
 
   v = {

@@ -1,4 +1,9 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
+local nvchad_on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_attach = function(client, bufnr)
+  nvchad_on_attach(client, bufnr)
+  -- extend on_attach here
+end
+
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
@@ -103,3 +108,28 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+-------------------------------------------------------------------------------
+
+-- Adding borders to hover and signature helps
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+-- LSP settings (for overriding per client)
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+}
+
+-- Do not forget to use the on_attach function
+require("lspconfig").myserver.setup { handlers = handlers }
+
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "single"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+require("lspconfig").myservertwo.setup {}
