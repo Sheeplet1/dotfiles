@@ -51,6 +51,10 @@ map(
   { desc = "Create centered comment header line" }
 )
 
+-- dap
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
+map("n", "<leader>dr", "<cmd> DapContinue<CR>", { desc = "Run or continue the debugger" })
+
 --------------------------------- visual mode ----------------------------------
 
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })
