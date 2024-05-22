@@ -72,6 +72,8 @@ return {
         "gofumpt",
         "goimports-reviser",
         "golines",
+
+        "shfmt",
       },
     },
   },
@@ -113,6 +115,7 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     lazy = false,
+    dependencies = { "neovim/nvim-lspconfig" },
     config = function()
       require "configs.lspsaga"
     end,
@@ -192,8 +195,9 @@ return {
   {
     "ray-x/lsp_signature.nvim",
     event = "LspAttach",
-    config = function()
-      require("lsp_signature").setup {}
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function(_, opts)
+      require("lsp_signature").setup { opts }
     end,
   },
 
@@ -224,17 +228,17 @@ return {
   },
 
   -- noice ui
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-      require "configs.noice"
-    end,
-    init = function()
-      vim.g.lsp_handlers_enabled = false
-    end,
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   config = function()
+  --     require "configs.noice"
+  --   end,
+  --   init = function()
+  --     vim.g.lsp_handlers_enabled = false
+  --   end,
+  -- },
 
   ----------------------------------- rust -----------------------------------
   {

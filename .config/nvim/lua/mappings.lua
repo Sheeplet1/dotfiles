@@ -41,8 +41,34 @@ local mappings = {
       "Create centered comment header line",
     },
 
-    ["<leader>db"] = { "<cmd> DapToggleBreakpoint<CR>", "Toggle breakpoint" },
+    ----------------------------------- dap ------------------------------------
+    ["<leader>db"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle breakpoint",
+    },
     ["<leader>dr"] = { "<cmd> DapContinue<CR>", "Run or continue the debugger" },
+    ["<leader>dsi"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step into function",
+    },
+    ["<leader>dso"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step over function",
+    },
+    ["<leader>dsO"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "Step out of function",
+    },
+
+    ----------------------------------------------------------------------------
 
     ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Open undotree" },
 
@@ -60,6 +86,11 @@ local mappings = {
     ["<C-l>"] = { "<cmd>TmuxNavigateRight<CR>", "Navigate right tmux pane" },
 
     ["<C-n>"] = { "<cmd>Oil --float<CR>", "Open Oil" },
+
+    -- ["K"] = {
+    --   "<cmd>Lspsaga hover_doc<CR>",
+    --   "Toggle signature",
+    -- },
   },
 
   v = {

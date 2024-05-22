@@ -14,7 +14,7 @@ local options = {
     typescriptreact = { "prettierd" },
 
     python = { "ruff_fix", "isort", "black" },
-    go = { "gofumpt", "goimports_reviser", "golines" },
+    go = { "gofumpt", "goimports-reviser", "golines" },
   },
 
   format_on_save = {
