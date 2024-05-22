@@ -1,97 +1,76 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
------------------------------------ disabled -----------------------------------
+local mappings = {
+  n = {
+    -- disabled
+    ["<leader>h"] = { "", "" },
 
-map("n", "<leader>h", "")
+    [";"] = { ":", "CMD enter command mode" },
 
---------------------------------- normal mode ----------------------------------
+    ["<leader>d"] = { '<cmd>"_d', "Delete without yank" },
+    ["<leader>p"] = { '<cmd>"_dp', "Replace without yank" },
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+    ["n"] = { "nzzzv", "Search terms stay centred" },
+    ["N"] = { "Nzzzv", "Search terms stay centred" },
 
-map("n", "<leader>d", '<cmd> "_d', { desc = "Delete without yanking" })
-map("n", "<leader>p", '<cmd> "_dp', { desc = "Replace without yanking" })
+    ["<C-d>"] = { "<C-d>zz", "Centre screen while half page jumping" },
+    ["<C-u>"] = { "<C-u>zz", "Centre screen while half page jumping" },
 
-map("n", "n", "nzzzv", { desc = "Search terms stay centred" })
-map("n", "N", "Nzzzv", { desc = "Search terms stay centred" })
+    ["S-}"] = { "<S-}>zzzv", "Move to the next paragraph and center" },
+    ["S-{"] = { "<S-{>zzzv", "Move to the prev paragraph and center" },
 
-map("n", "<C-d>", "<C-d>zz", { desc = "Centre screen while half page jumping" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Centre screen while half page jumping" })
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
+    ["<leader>w"] = { ":w<CR>", "Save file" },
+    ["<leader>wq"] = { ":wq<CR>", "Save file and quit" },
+    ["<leader>q"] = { ":q!<CR>", "Quit file without saving" },
 
-map("n", "S-}", "<S-}>zzzv", { desc = "Move to next paragraph and center" })
-map("n", "S-{", "<S-{>zzzv", { desc = "Move to previous paragraph and center" })
+    ["Y"] = { "y$", "Yank till the end of the line" },
+    ["D"] = { "d$", "Delete till the end of the line" },
+    ["C"] = { "c$", "Change till the end of the line" },
+    ["H"] = { "0", "Go to the start of the line" },
+    ["L"] = { "$", "Go to the end of the line" },
 
-map("n", "<leader>y", '"+y', { desc = "Yank into system clipboard" })
+    ["<leader>cb"] = {
+      ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.",
+      "Create centered comment header block",
+    },
+    ["<leader>cl"] = {
+      ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>",
+      "Create centered comment header line",
+    },
 
-map("n", "<leader>w", ":w<CR>", { desc = "Save File" })
-map("n", "<leader>wq", ":wq<CR>", { desc = "Save file and quit" })
-map("n", "<leader>q", ":q!<CR>", { desc = "Quit file without saving" })
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint<CR>", "Toggle breakpoint" },
+    ["<leader>dr"] = { "<cmd> DapContinue<CR>", "Run or continue the debugger" },
 
---
-map("n", "Y", "y$", { desc = "Yank till the end of the line" })
-map("n", "D", "d$", { desc = "Delete till the end of the line" })
-map("n", "C", "c$", { desc = "Change till the end of the line" })
-map("n", "H", "0", { desc = "Go to the start of the line" })
-map("n", "L", "$", { desc = "Go to the end of the line" })
+    ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Open undotree" },
 
--- comment headers and blocks
-map(
-  "n",
-  "<leader>cb",
-  ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.",
-  { desc = "Create centered comment header block " }
-)
-map(
-  "n",
-  "<leader>cl",
-  ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>",
-  { desc = "Create centered comment header line" }
-)
+    ["<leader>gg"] = { "<cmd>LazyGit<CR>", "Open LazyGit" },
 
--- dap
-map("n", "<leader>db", "<cmd> DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
-map("n", "<leader>dr", "<cmd> DapContinue<CR>", { desc = "Run or continue the debugger" })
+    ["<leader>zm"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
--- telescope undo tree
-map("n", "<leader>fu", "<cmd>Telescope undo<CR>", { desc = "Open undotree" })
+    ["<leader>md"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 
---------------------------------- visual mode ----------------------------------
+    ["<leader>tt"] = { "<cmd>TroubleToggle<CR>", "TodoTrouble" },
 
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move the selected lines up" })
-map("v", "<leader>y", '"+y', { desc = "Yank into system clipboard" })
-map("v", "<leader>d", '<cmd "_d', { desc = "Delete without yanking" })
+    ["<C-h>"] = { "<cmd>TmuxNavigateLeft<CR>", "Navigate left tmux pane" },
+    ["<C-j>"] = { "<cmd>TmuxNavigateDown<CR>", "Navigate down tmux pane" },
+    ["<C-k>"] = { "<cmd>TmuxNavigateUp<CR>", "Navigate up tmux pane" },
+    ["<C-l>"] = { "<cmd>TmuxNavigateRight<CR>", "Navigate right tmux pane" },
 
---------------------------------- insert mode ----------------------------------
+    ["<C-n>"] = { "<cmd>Oil --float<CR>", "Open Oil" },
+  },
 
-map("i", "jk", "<Esc>", { desc = "jk to escape" })
-map("i", "kj", "<Esc>", { desc = "kj to escape" })
+  v = {
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move the selected lines down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move the selected lines up" },
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
+    ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
+  },
 
--------------------------------- tmux navigator --------------------------------
-
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "Navigate left tmux pane" })
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Navigate down tmux pane" })
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Navigate up tmux pane" })
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "Navigate right tmux pane" })
-
------------------------------------ lazy git -----------------------------------
-
-map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
-
------------------------------------ zen mode -----------------------------------
-
-map("n", "<leader>zm", "<cmd>ZenMode<CR>", { desc = "ZenMode" })
-
-------------------------------- markdown preview -------------------------------
-
-map("n", "<leader>md", "<cmd>MarkdownPreview<CR>", { desc = "Markdown Preview" })
-
---------------------------------- todotrouble ----------------------------------
-
-map("n", "<leader>tt", "<cmd>TroubleToggle<CR>", { desc = "TodoTrouble" })
+  i = {},
+}
 
 ----------------------------------- harpoon ------------------------------------
 
@@ -130,15 +109,9 @@ map("n", "<leader>hN", function()
   harpoon:list():prev()
 end, { desc = "Go to prev Harpoon file" })
 
------------------------------------ undotree -----------------------------------
-
-map("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { desc = "Toggle Undotree" })
-
----------------------------------- telescope -----------------------------------
-
--- map("n", "<C-n>", ":Telescope file_browser<CR>", { desc = "Telescope File Browser" })
--- map("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "Telescope File Browser" })
-
-------------------------------------- oil --------------------------------------
-
-map("n", "<C-n>", "<cmd>Oil --float<CR>", { desc = "Open Oil" })
+-------------------------------------- - ---------------------------------------
+for mode, maps in pairs(mappings) do
+  for key, val in pairs(maps) do
+    map(mode, key, val[1], { desc = val[2] })
+  end
+end

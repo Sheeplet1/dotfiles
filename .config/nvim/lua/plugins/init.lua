@@ -224,17 +224,17 @@ return {
   },
 
   -- noice ui
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = { "MunifTanjim/nui.nvim" },
-  --   config = function()
-  --     require "configs.noice"
-  --   end,
-  --   init = function()
-  --     vim.g.lsp_handlers_enabled = false
-  --   end,
-  -- },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    config = function()
+      require "configs.noice"
+    end,
+    init = function()
+      vim.g.lsp_handlers_enabled = false
+    end,
+  },
 
   ----------------------------------- rust -----------------------------------
   {
