@@ -55,6 +55,9 @@ map(
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
 map("n", "<leader>dr", "<cmd> DapContinue<CR>", { desc = "Run or continue the debugger" })
 
+-- telescope undo tree
+map("n", "<leader>fu", "<cmd>Telescope undo<CR>", { desc = "Open undotree" })
+
 --------------------------------- visual mode ----------------------------------
 
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })

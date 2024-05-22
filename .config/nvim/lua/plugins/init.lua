@@ -112,7 +112,7 @@ return {
   -- enhanced lsp experience
   {
     "nvimdev/lspsaga.nvim",
-    event = "LspAttach",
+    lazy = false,
     config = function()
       require "configs.lspsaga"
     end,
@@ -217,22 +217,24 @@ return {
 
   -- undo tree
   {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
+    "debugloop/telescope-undo.nvim",
+    config = function()
+      require("telescope").load_extension "undo"
+    end,
   },
 
   -- noice ui
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-      require "configs.noice"
-    end,
-    init = function()
-      vim.g.lsp_handlers_enabled = false
-    end,
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   config = function()
+  --     require "configs.noice"
+  --   end,
+  --   init = function()
+  --     vim.g.lsp_handlers_enabled = false
+  --   end,
+  -- },
 
   ----------------------------------- rust -----------------------------------
   {
