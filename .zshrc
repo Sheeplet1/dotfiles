@@ -13,13 +13,6 @@ fi
 #################################### Paths #####################################
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:/usr/local/go/bin
-
-# If fzf is not installed already, then install it.
-if [[ ! -f "/.fzf/bin/fzf" ]]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-fi
-
 export PATH=$PATH:/.fzf/bin/fzf
 
 #################################### ZINIT #####################################
