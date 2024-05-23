@@ -13,6 +13,7 @@ fi
 #################################### Paths #####################################
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/.fzf/bin/fzf
 
 #################################### ZINIT #####################################
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -115,3 +116,5 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 then
   tmux attach 2>/dev/null || tmux
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
