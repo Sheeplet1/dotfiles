@@ -74,6 +74,7 @@ return {
         "golines",
 
         "shfmt",
+        "bash-language-server",
       },
       ui = {
         border = "rounded",
