@@ -88,6 +88,7 @@ return {
         "vim",
         "vimdoc",
         "lua",
+        "regex",
 
         "html",
         "css",
@@ -232,7 +233,7 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim", "neovim/nvim-lspconfig" },
+    dependencies = { "MunifTanjim/nui.nvim", "neovim/nvim-lspconfig", "rcarriga/nvim-notify" },
     config = function()
       require "configs.noice"
     end,
