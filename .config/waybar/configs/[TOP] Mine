@@ -1,0 +1,57 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+// Sleek
+
+{
+"include": "~/.config/waybar/modules",
+"layer": "top",
+"position": "top",
+"height": 14,
+"margin-left": 10,
+"margin-right": 10,
+"margin-top": 2,
+	
+"modules-left": [
+  "hyprland/workspaces",
+  "custom/separator#dot-line",
+	"clock",
+	"custom/separator#dot-line",
+	"hyprland/window",
+	"custom/separator#dot-line",
+],
+
+"modules-center": [		
+  "custom/cava_mviz",
+  "custom/separator#blank_3",
+  "custom/playerctl",
+  "custom/separator#blank_3",
+  "custom/cava_mviz",
+],
+		
+"modules-right": [
+  "custom/weather",
+	"custom/separator#dot-line",
+  "network",
+	"custom/separator#dot-line",
+  "group/audio",
+	"custom/separator#dot-line",
+  "custom/swaync",
+	"custom/separator#dot-line",
+	"custom/power",					
+	],
+
+
+// Additional format / customize modules
+
+"custom/power": {
+	"format": " ",
+	"icon-size": 20,
+	"tooltip": false,
+},
+	
+"clock": {
+	//"format": "{:%I:%M %p - %d/%b}", //for AM/PM
+  //"format": "{:%H:%M - %d/%b}", // 24H
+    "format": "  {:%I:%M %p   %d:%b}",
+	"tooltip": false
+},
+}
