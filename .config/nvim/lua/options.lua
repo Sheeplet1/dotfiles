@@ -33,20 +33,20 @@ vim.o.softtabstop = 2 -- Number of spaces inserted instead of a TAB
 vim.o.shiftwidth = 2 -- Number of spaces when indenting
 
 ------------------------------ Resizing NvimTree -------------------------------
-function NvimTree_width_ratio(percentage)
-  local ratio = percentage / 100
-  local width = math.floor(vim.go.columns * ratio)
-  return width
-end
-
--- Resizes neotree dynamically
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-  group = vim.api.nvim_create_augroup("NvimTreeResize", { clear = true }),
-  callback = function()
-    local width = NvimTree_width_ratio(20)
-    vim.cmd("tabdo NvimTreeResize " .. width)
-  end,
-})
+-- function NvimTree_width_ratio(percentage)
+--   local ratio = percentage / 100
+--   local width = math.floor(vim.go.columns * ratio)
+--   return width
+-- end
+--
+-- -- Resizes neotree dynamically
+-- vim.api.nvim_create_autocmd({ "VimResized" }, {
+--   group = vim.api.nvim_create_augroup("NvimTreeResize", { clear = true }),
+--   callback = function()
+--     local width = NvimTree_width_ratio(20)
+--     vim.cmd("tabdo NvimTreeResize " .. width)
+--   end,
+-- })
 
 ---------------------------- Highlight yanked group ----------------------------
 local augroup = vim.api.nvim_create_augroup
