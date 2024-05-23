@@ -16,7 +16,6 @@
 	"clock",
 	"custom/separator#dot-line",
 	"hyprland/window",
-	"custom/separator#dot-line",
 ],
 
 "modules-center": [		
@@ -54,4 +53,8 @@
     "format": "  {:%I:%M %p   %d:%b}",
 	"tooltip": false
 },
+
+"hyprland/window": {
+  "max-length": 30, 
+}
 }
