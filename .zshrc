@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -13,6 +13,13 @@ fi
 #################################### Paths #####################################
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:/usr/local/go/bin
+
+# If fzf is not installed already, then install it.
+if [[ ! -f "/.fzf/bin/fzf" ]]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
+
 export PATH=$PATH:/.fzf/bin/fzf
 
 #################################### ZINIT #####################################
@@ -79,19 +86,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 ################################### Aliases ####################################
-if [[ `uname` == "Darwin" ]]; then
-    alias onedrive_uni="cd '/Users/huananthonydo/OneDrive - UNSW/2023/T3/'"
-    alias personal="cd '/Users/huananthonydo/Documents/code/'"
-    alias uni="cd '/Users/huananthonydo/Documents/uni/'"
-
-  elif [[ `uname` == "Linux" ]]; then
-    alias onedrivep="cd '/mnt/c/Users/Anthony/OneDrive/Obsidian Vault/'"
-    alias onedrive="cd '/mnt/c/Users/Anthony/OneDrive - UNSW/2023/T3/'"
-    alias personal="cd '/home/anthony/code/personal/'"
-    alias uni="cd '/home/anthony/code/uni/'"
-    alias open="/mnt/c/Windows/explorer.exe"
-fi
-
 alias connect3d="ssh biqu@192.168.20.22"
 
 alias ls='ls --color'
