@@ -10,6 +10,8 @@ if [[ -f "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 #################################### Paths #####################################
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:/usr/local/go/bin
