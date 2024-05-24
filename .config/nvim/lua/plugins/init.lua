@@ -22,7 +22,14 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require "configs.dap"
+      require "configs.nvim-dap"
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = false,
+    config = function(_, opts)
+      require("nvim-dap-virtual-text").setup()
     end,
   },
 
@@ -48,6 +55,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- Python
         "pyright",
         "debugpy",
         "mypy",
@@ -55,12 +63,15 @@ return {
         "black",
         "isort",
 
+        -- Formatters
         "prettier",
         "prettierd",
 
+        -- Lua
         "lua-language-server",
         "stylua",
 
+        -- Frontend
         "typescript-language-server",
         "tailwindcss-language-server",
         "css-lsp",
@@ -68,13 +79,23 @@ return {
         "eslint-lsp",
         "js-debug-adapter",
 
+        -- Go
         "gopls",
         "gofumpt",
         "goimports-reviser",
         "golines",
+        "go-debug-adapter",
+        "gomodifytags",
+        "gotests",
 
+        -- Bash
         "shfmt",
         "bash-language-server",
+
+        -- C++
+        "clangd",
+        "clang-format",
+        "codelldb",
       },
       ui = {
         border = "rounded",
@@ -116,15 +137,6 @@ return {
     opts = {},
   },
 
-  -- enhanced lsp experience
-  -- {
-  --   "nvimdev/lspsaga.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require "configs.lspsaga"
-  --   end,
-  -- },
-
   -- surround text object functionality
   {
     "kylechui/nvim-surround",
@@ -146,11 +158,10 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
     ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
 
   -- sync vim keybinds with tmux panels
@@ -195,15 +206,6 @@ return {
     },
   },
 
-  -- shows function hints while typing
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "LspAttach",
-  --   config = function(_, opts)
-  --     require("lsp_signature").setup { opts }
-  --   end,
-  -- },
-
   -- pretty ui for code-actions mainly
   {
     "nvim-telescope/telescope-ui-select.nvim",
@@ -225,6 +227,7 @@ return {
   -- undo tree
   {
     "debugloop/telescope-undo.nvim",
+    event = "VeryLazy",
     config = function()
       require("telescope").load_extension "undo"
     end,
@@ -285,6 +288,7 @@ return {
   ---------------------------------- frontend ----------------------------------
   {
     "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
     ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       require("nvim-ts-autotag").setup()

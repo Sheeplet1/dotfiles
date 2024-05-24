@@ -44,26 +44,26 @@ local mappings = {
     ----------------------------------- dap ------------------------------------
     ["<leader>db"] = {
       function()
-        require("dap").toggle_breakpoint()
+        require("lua.configs.nvim-dap").toggle_breakpoint()
       end,
       "Toggle breakpoint",
     },
     ["<leader>dr"] = { "<cmd> DapContinue<CR>", "Run or continue the debugger" },
     ["<leader>dsi"] = {
       function()
-        require("dap").step_into()
+        require("lua.configs.nvim-dap").step_into()
       end,
       "Step into function",
     },
     ["<leader>dso"] = {
       function()
-        require("dap").step_over()
+        require("lua.configs.nvim-dap").step_over()
       end,
       "Step over function",
     },
     ["<leader>dsO"] = {
       function()
-        require("dap").step_out()
+        require("lua.configs.nvim-dap").step_out()
       end,
       "Step out of function",
     },
