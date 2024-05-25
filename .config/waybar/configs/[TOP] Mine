@@ -27,6 +27,8 @@
 ],
 		
 "modules-right": [
+  "group/motherboard",
+	"custom/separator#dot-line",
   "custom/weather",
 	"custom/separator#dot-line",
   "network",
