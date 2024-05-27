@@ -26,6 +26,12 @@ local servers = {
 
   -- go
   "gopls",
+
+  -- cpp
+  "clangd",
+
+  -- lua
+  "lua-language-server",
 }
 
 -- lsps with default config
