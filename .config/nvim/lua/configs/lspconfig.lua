@@ -29,9 +29,6 @@ local servers = {
 
   -- cpp
   "clangd",
-
-  -- lua
-  "lua-language-server",
 }
 
 -- lsps with default config
