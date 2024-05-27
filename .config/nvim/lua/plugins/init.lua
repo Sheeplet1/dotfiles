@@ -124,6 +124,7 @@ return {
 
         "go",
         "rust",
+        "cpp",
       },
     },
   },
