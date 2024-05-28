@@ -15,7 +15,6 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 #################################### Paths #####################################
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:/usr/local/go/bin
-alias fzf=~/.fzf/bin/fzf
 export PATH=$PATH:/.fzf/bin/fzf
 
 #################################### ZINIT #####################################
