@@ -16,7 +16,6 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/.fzf/bin/fzf
-alias fzf=~/.fzf/bin/fzf
 
 #################################### ZINIT #####################################
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
