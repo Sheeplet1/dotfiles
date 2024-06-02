@@ -10,7 +10,7 @@ elif [[ $(uname) == "Linux" ]]; then
 	if [[ $# -eq 1 ]]; then
 		selected=$1
 	else
-		selected=$(find ~/ ~/Documents ~/Documents/projects ~/Documents/uni ~/Documents/resources ~/dotfiles -mindepth 1 -maxdepth 1 -type d | fzf)
+		selected=$(find ~/ ~/Documents ~/Documents/projects ~/Documents/uni ~/Documents/uni/comp6771/ ~/Documents/resources ~/dotfiles -mindepth 1 -maxdepth 1 -type d | fzf)
 	fi
 fi
 
