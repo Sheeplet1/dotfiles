@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-  theme = "kanagawa",
+  theme = "catppuccin",
   statusline = { theme = "minimal", separator_style = "round" },
   telescope = { style = "bordered" },
   lsp = {

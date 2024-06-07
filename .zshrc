@@ -108,3 +108,5 @@ then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH=$PATH:/home/anthony/.spicetify
