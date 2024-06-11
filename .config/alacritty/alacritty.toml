@@ -1,6 +1,6 @@
 live_config_reload = true
 import = [
-  "~/.config/alacritty/themes/catppuccin-mocha.toml"
+  "~/.config/alacritty/themes/tokyo-night.toml"
 ]
 
 [bell]
