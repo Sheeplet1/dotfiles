@@ -41,6 +41,23 @@ local mappings = {
       "Create centered comment header line",
     },
 
+    ["<C-Up>"] = {
+      "<cmd>resize +2<CR>",
+      "Increase window height",
+    },
+    ["<C-Down>"] = {
+      "<cmd>resize -2<CR>",
+      "Decrease window height",
+    },
+    ["<C-Left>"] = {
+      "<cmd>vertical resize +2<CR>",
+      "Increase window width",
+    },
+    ["<C-Right>"] = {
+      "<cmd>vertical resize -2<CR>",
+      "Decrease window width",
+    },
+
     ----------------------------------- dap ------------------------------------
     ["<leader>db"] = {
       function()
