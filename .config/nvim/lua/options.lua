@@ -4,6 +4,8 @@ require "nvchad.options"
 vim.opt.colorcolumn = "80"
 
 vim.g.have_nerd_font = true
+
+-- enable mouse support
 vim.opt.mouse = "a"
 
 -- relative numbers
@@ -44,3 +46,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+--------------------------------------------------------------------------------
+-- Keybindings for saving and quitting (typos)
+vim.cmd [[command! W w]]
+vim.cmd [[command! Q q]]
+vim.cmd [[command! Wq wq]]
+vim.cmd [[command! WQ wq]]
+vim.cmd [[command! Qa qa]]
+vim.cmd [[command! QA qa]]
