@@ -15,4 +15,12 @@ return {
       require("mini.surround").setup {}
     end,
   },
+  {
+    "echasnovski/mini.notify",
+    version = false,
+    event = "BufEnter",
+    config = function()
+      require("mini.notify").setup {}
+    end,
+  },
 }
