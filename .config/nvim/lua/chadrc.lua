@@ -17,4 +17,14 @@ M.ui = {
   -- },
 }
 
+M.base46 = {
+  integrations = {
+    "cmp",
+    "todo",
+    "telescope",
+    "rainbowdelimiters",
+    "mason",
+  },
+}
+
 return M

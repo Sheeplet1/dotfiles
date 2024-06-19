@@ -1,6 +1,10 @@
 require "nvchad.options"
 
+-- column border of 80
 vim.opt.colorcolumn = "80"
+
+vim.g.have_nerd_font = true
+vim.opt.mouse = "a"
 
 -- relative numbers
 vim.opt.relativenumber = true
@@ -25,40 +29,18 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.termguicolors = true
 
 -- minimum number of screen lines to keep above and below the cursor
-vim.o.scrolloff = 5
+vim.o.scrolloff = 10
 
 vim.o.tabstop = 2 -- TAB looks like 2 spaces
 vim.o.expandtab = true -- use spaces instead of TABs
 vim.o.softtabstop = 2 -- Number of spaces inserted instead of a TAB
 vim.o.shiftwidth = 2 -- Number of spaces when indenting
 
------------------------------- Resizing NvimTree -------------------------------
--- function NvimTree_width_ratio(percentage)
---   local ratio = percentage / 100
---   local width = math.floor(vim.go.columns * ratio)
---   return width
--- end
---
--- -- Resizes neotree dynamically
--- vim.api.nvim_create_autocmd({ "VimResized" }, {
---   group = vim.api.nvim_create_augroup("NvimTreeResize", { clear = true }),
---   callback = function()
---     local width = NvimTree_width_ratio(20)
---     vim.cmd("tabdo NvimTreeResize " .. width)
---   end,
--- })
-
 ---------------------------- Highlight yanked group ----------------------------
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup("HighlightYank", {})
-autocmd("TextYankPost", {
-  group = yank_group,
-  pattern = "*",
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
-    vim.highlight.on_yank {
-      higroup = "IncSearch",
-      timeout = 40,
-    }
+    vim.highlight.on_yank()
   end,
 })

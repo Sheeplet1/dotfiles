@@ -19,6 +19,11 @@ local options = {
       dismiss = "<C-]>",
     },
   },
+
+  filetypes = {
+    yaml = false,
+    markdown = false,
+  },
 }
 
 require("copilot").setup(options)

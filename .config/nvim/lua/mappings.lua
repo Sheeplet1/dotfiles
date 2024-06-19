@@ -124,40 +124,40 @@ local mappings = {
 
 ----------------------------------- harpoon ------------------------------------
 
-local harpoon = require "harpoon"
-harpoon:setup()
-
-map("n", "<leader>h", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "Harpoon Menu" })
-
-map("n", "<leader>a", function()
-  harpoon:list():add()
-end, { desc = "Add to Harpoon" })
-
-map("n", "<A-h>", function()
-  harpoon:list():select(1)
-end, { desc = "Open first Harpoon file" })
-
-map("n", "<A-j>", function()
-  harpoon:list():select(2)
-end, { desc = "Open second Harpoon file" })
-
-map("n", "<A-k>", function()
-  harpoon:list():select(3)
-end, { desc = "Open third Harpoon file" })
-
-map("n", "<A-l>", function()
-  harpoon:list():select(4)
-end, { desc = "Open fourth Harpoon file" })
-
-map("n", "<leader>hn", function()
-  harpoon:list():next()
-end, { desc = "Go to next Harpoon file" })
-
-map("n", "<leader>hN", function()
-  harpoon:list():prev()
-end, { desc = "Go to prev Harpoon file" })
+-- local harpoon = require "harpoon"
+-- harpoon:setup()
+--
+-- map("n", "<leader>h", function()
+--   harpoon.ui:toggle_quick_menu(harpoon:list())
+-- end, { desc = "Harpoon Menu" })
+--
+-- map("n", "<leader>a", function()
+--   harpoon:list():add()
+-- end, { desc = "Add to Harpoon" })
+--
+-- map("n", "<A-h>", function()
+--   harpoon:list():select(1)
+-- end, { desc = "Open first Harpoon file" })
+--
+-- map("n", "<A-j>", function()
+--   harpoon:list():select(2)
+-- end, { desc = "Open second Harpoon file" })
+--
+-- map("n", "<A-k>", function()
+--   harpoon:list():select(3)
+-- end, { desc = "Open third Harpoon file" })
+--
+-- map("n", "<A-l>", function()
+--   harpoon:list():select(4)
+-- end, { desc = "Open fourth Harpoon file" })
+--
+-- map("n", "<leader>hn", function()
+--   harpoon:list():next()
+-- end, { desc = "Go to next Harpoon file" })
+--
+-- map("n", "<leader>hN", function()
+--   harpoon:list():prev()
+-- end, { desc = "Go to prev Harpoon file" })
 
 -------------------------------------- - ---------------------------------------
 for mode, maps in pairs(mappings) do
