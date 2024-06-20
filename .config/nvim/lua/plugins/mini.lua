@@ -1,26 +1,23 @@
 return {
   {
-    "echasnovski/mini.pairs",
+    'echasnovski/mini.pairs',
     version = false,
-    event = "BufEnter",
     config = function()
-      require("mini.pairs").setup {}
+      require('mini.pairs').setup {}
     end,
   },
   {
-    "echasnovski/mini.surround",
+    'echasnovski/mini.surround',
     version = false,
-    event = "BufEnter",
     config = function()
-      require("mini.surround").setup {}
+      require('mini.surround').setup {}
     end,
   },
   {
-    "echasnovski/mini.notify",
+    'echasnovski/mini.tabline',
     version = false,
-    event = "BufEnter",
     config = function()
-      require("mini.notify").setup {}
+      require('mini.tabline').setup {}
     end,
   },
 }

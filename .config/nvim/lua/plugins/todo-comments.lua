@@ -1,9 +1,8 @@
 return {
-  -- expand on comment functionality
   {
-    "folke/todo-comments.nvim",
-    lazy = false,
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'folke/todo-comments.nvim',
+    event = 'BufRead',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
 }
