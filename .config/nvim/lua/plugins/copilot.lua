@@ -1,10 +1,10 @@
 return {
   {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      require 'plugins.configs.copilot'
+      require "configs.copilot"
     end,
   },
 }

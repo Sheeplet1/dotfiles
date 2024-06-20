@@ -1,148 +1,122 @@
+require "nvchad.mappings"
+
 local map = vim.keymap.set
 
 local mappings = {
   n = {
     -- disabled
-    ['<leader>h'] = { '', '' },
+    ["<leader>h"] = { "", "" },
 
-    [';'] = { ':', 'CMD enter command mode' },
+    [";"] = { ":", "CMD enter command mode" },
 
-    ['<leader>d'] = { '<cmd>"_d', 'Delete without yank' },
-    ['<leader>p'] = { '<cmd>"_dp', 'Replace without yank' },
+    ["<leader>d"] = { '<cmd>"_d', "Delete without yank" },
+    ["<leader>p"] = { '<cmd>"_dp', "Replace without yank" },
 
-    ['n'] = { 'nzzzv', 'Search terms stay centred' },
-    ['N'] = { 'Nzzzv', 'Search terms stay centred' },
+    ["n"] = { "nzzzv", "Search terms stay centred" },
+    ["N"] = { "Nzzzv", "Search terms stay centred" },
 
-    ['<C-d>'] = { '<C-d>zz', 'Centre screen while half page jumping' },
-    ['<C-u>'] = { '<C-u>zz', 'Centre screen while half page jumping' },
+    ["<C-d>"] = { "<C-d>zz", "Centre screen while half page jumping" },
+    ["<C-u>"] = { "<C-u>zz", "Centre screen while half page jumping" },
 
-    ['S-}'] = { '<S-}>zzzv', 'Move to the next paragraph and center' },
-    ['S-{'] = { '<S-{>zzzv', 'Move to the prev paragraph and center' },
+    ["S-}"] = { "<S-}>zzzv", "Move to the next paragraph and center" },
+    ["S-{"] = { "<S-{>zzzv", "Move to the prev paragraph and center" },
 
-    ['<leader>y'] = { '"+y', 'Yank into system clipboard' },
-    ['<leader>w'] = { ':w<CR>', 'Save file' },
-    ['<leader>wq'] = { ':wq<CR>', 'Save file and quit' },
-    ['<leader>q'] = { ':q!<CR>', 'Quit file without saving' },
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
+    ["<leader>w"] = { ":w<CR>", "Save file" },
+    ["<leader>wq"] = { ":wq<CR>", "Save file and quit" },
+    ["<leader>q"] = { ":q!<CR>", "Quit file without saving" },
 
-    ['Y'] = { 'y$', 'Yank till the end of the line' },
-    ['D'] = { 'd$', 'Delete till the end of the line' },
-    ['C'] = { 'c$', 'Change till the end of the line' },
-    ['H'] = { '0', 'Go to the start of the line' },
-    ['L'] = { '$', 'Go to the end of the line' },
+    ["Y"] = { "y$", "Yank till the end of the line" },
+    ["D"] = { "d$", "Delete till the end of the line" },
+    ["C"] = { "c$", "Change till the end of the line" },
+    ["H"] = { "0", "Go to the start of the line" },
+    ["L"] = { "$", "Go to the end of the line" },
 
-    ['<leader>cb'] = {
-      ':center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.',
-      'Create centered comment header block',
+    ["<leader>cb"] = {
+      ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.",
+      "Create centered comment header block",
     },
-    ['<leader>cl'] = {
-      ':center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>',
-      'Create centered comment header line',
-    },
-
-    ['<C-Up>'] = {
-      '<cmd>resize +2<CR>',
-      'Increase window height',
-    },
-    ['<C-Down>'] = {
-      '<cmd>resize -2<CR>',
-      'Decrease window height',
-    },
-    ['<C-Left>'] = {
-      '<cmd>vertical resize +2<CR>',
-      'Increase window width',
-    },
-    ['<C-Right>'] = {
-      '<cmd>vertical resize -2<CR>',
-      'Decrease window width',
+    ["<leader>cl"] = {
+      ":center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>",
+      "Create centered comment header line",
     },
 
-    ['<Esc><Esc>'] = {
-      '<C-\\><C-n>',
-      'Exit terminal mode',
+    ["<C-Up>"] = {
+      "<cmd>resize +2<CR>",
+      "Increase window height",
     },
-
-    ['[d'] = {
-      vim.diagnostic.goto_prev,
-      'Go to previous diagnostic',
+    ["<C-Down>"] = {
+      "<cmd>resize -2<CR>",
+      "Decrease window height",
     },
-
-    [']d'] = {
-      vim.diagnostic.goto_next,
-      'Go to next diagnostic',
+    ["<C-Left>"] = {
+      "<cmd>vertical resize +2<CR>",
+      "Increase window width",
     },
-
-    ['<leader>x'] = {
-      '<CMD>bd<CR>',
-      'Close buffer',
-    },
-    ['<TAB>'] = {
-      '<CMD>bnext<CR>',
-      'Next buffer',
-    },
-    ['<S-TAB>'] = {
-      '<CMD>bprev<CR>',
-      'Previous buffer',
+    ["<C-Right>"] = {
+      "<cmd>vertical resize -2<CR>",
+      "Decrease window width",
     },
 
     ----------------------------------- dap ------------------------------------
-    ['<leader>db'] = {
+    ["<leader>db"] = {
       function()
-        require('lua.configs.nvim-dap').toggle_breakpoint()
+        require("lua.configs.nvim-dap").toggle_breakpoint()
       end,
-      'Toggle breakpoint',
+      "Toggle breakpoint",
     },
-    ['<leader>dr'] = { '<cmd> DapContinue<CR>', 'Run or continue the debugger' },
-    ['<leader>dsi'] = {
+    ["<leader>dr"] = { "<cmd> DapContinue<CR>", "Run or continue the debugger" },
+    ["<leader>dsi"] = {
       function()
-        require('lua.configs.nvim-dap').step_into()
+        require("lua.configs.nvim-dap").step_into()
       end,
-      'Step into function',
+      "Step into function",
     },
-    ['<leader>dso'] = {
+    ["<leader>dso"] = {
       function()
-        require('lua.configs.nvim-dap').step_over()
+        require("lua.configs.nvim-dap").step_over()
       end,
-      'Step over function',
+      "Step over function",
     },
-    ['<leader>dsO'] = {
+    ["<leader>dsO"] = {
       function()
-        require('lua.configs.nvim-dap').step_out()
+        require("lua.configs.nvim-dap").step_out()
       end,
-      'Step out of function',
+      "Step out of function",
     },
 
     ----------------------------------------------------------------------------
 
-    ['<leader>fu'] = { '<cmd>Telescope undo<CR>', 'Open undotree' },
+    ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Open undotree" },
 
-    ['<leader>gg'] = { '<cmd>LazyGit<CR>', 'Open LazyGit' },
+    ["<leader>gg"] = { "<cmd>LazyGit<CR>", "Open LazyGit" },
 
-    ['<leader>zm'] = { '<cmd>ZenMode<CR>', 'ZenMode' },
+    ["<leader>zm"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
-    ['<leader>md'] = { '<cmd>MarkdownPreview<CR>', 'Markdown Preview' },
+    ["<leader>md"] = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 
-    ['<leader>tt'] = { '<cmd>TroubleToggle<CR>', 'TodoTrouble' },
+    ["<leader>tt"] = { "<cmd>TroubleToggle<CR>", "TodoTrouble" },
 
-    ['<C-h>'] = { '<cmd>TmuxNavigateLeft<CR>', 'Navigate left tmux pane' },
-    ['<C-j>'] = { '<cmd>TmuxNavigateDown<CR>', 'Navigate down tmux pane' },
-    ['<C-k>'] = { '<cmd>TmuxNavigateUp<CR>', 'Navigate up tmux pane' },
-    ['<C-l>'] = { '<cmd>TmuxNavigateRight<CR>', 'Navigate right tmux pane' },
+    ["<C-h>"] = { "<cmd>TmuxNavigateLeft<CR>", "Navigate left tmux pane" },
+    ["<C-j>"] = { "<cmd>TmuxNavigateDown<CR>", "Navigate down tmux pane" },
+    ["<C-k>"] = { "<cmd>TmuxNavigateUp<CR>", "Navigate up tmux pane" },
+    ["<C-l>"] = { "<cmd>TmuxNavigateRight<CR>", "Navigate right tmux pane" },
 
-    ['<C-n>'] = { '<cmd>Oil --float<CR>', 'Open Oil' },
+    ["<C-n>"] = { "<cmd>Oil --float<CR>", "Open Oil" },
 
-    ['<leader>lf'] = {
+    ["<leader>lf"] = {
       function()
-        vim.diagnostic.open_float(nil, { border = 'rounded' })
+        vim.diagnostic.open_float(nil, { border = "rounded" })
       end,
-      'Open diagnostic',
+      "Open diagnostic",
     },
   },
 
   v = {
-    ['J'] = { ":m '>+1<CR>gv=gv", 'Move the selected lines down' },
-    ['K'] = { ":m '<-2<CR>gv=gv", 'Move the selected lines up' },
-    ['<leader>y'] = { '"+y', 'Yank into system clipboard' },
-    ['<leader>d'] = { '<cmd> "_d', 'Delete without yanking' },
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move the selected lines down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move the selected lines up" },
+    ["<leader>y"] = { '"+y', "Yank into system clipboard" },
+    ["<leader>d"] = { '<cmd> "_d', "Delete without yanking" },
   },
 
   i = {},
