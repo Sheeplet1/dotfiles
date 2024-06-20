@@ -40,9 +40,11 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'williamboman/mason.nvim' },
     opts = function()
       require('mason-lspconfig').setup {
-        require 'plugins.configs.mason',
+        -- ensure_installed = require('plugins.configs.servers').servers,
+        -- automatic_installation = true,
       }
     end,
   },
