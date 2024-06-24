@@ -1,8 +1,8 @@
 # change window focus within space
-alt - j : yabai -m window --focus south || yabai -m display --focus south 
-alt - k : yabai -m window --focus north || yabai -m display --focus north 
-alt - h : yabai -m window --focus west || yabai -m display --focus west
-alt - l : yabai -m window --focus east || yabai -m display --focus east
+alt - down : yabai -m window --focus south || yabai -m display --focus south 
+alt - up : yabai -m window --focus north || yabai -m display --focus north 
+alt - left : yabai -m window --focus west || yabai -m display --focus west
+alt - right : yabai -m window --focus east || yabai -m display --focus east
 
 #change focus between external displays (left and right)
 alt - s: yabai -m display --focus west
@@ -27,19 +27,19 @@ shift + alt - m : yabai -m window --toggle zoom-fullscreen; sketchybar --trigger
 shift + alt - e : yabai -m space --balance
 
 # swap windows
-shift + alt - j : yabai -m window --warp south || $(yabai -m window --display south && yabai -m display --focus south && yabai -m window --warp last) || yabai -m window --move rel:-10:0
+shift + ctrl - up : yabai -m window --warp north || $(yabai -m window --display north && yabai -m display --focus north) || yabai -m window --move rel:0:10
 
-shift + alt - k : yabai -m window --warp north || $(yabai -m window --display north && yabai -m display --focus north) || yabai -m window --move rel:0:10
+shift + ctrl - down : yabai -m window --warp south || $(yabai -m window --display south && yabai -m display --focus south && yabai -m window --warp last) || yabai -m window --move rel:-10:0
 
-shift + alt - h : yabai -m window --warp west || $(yabai -m window --display west && yabai -m display --focus west) || yabai -m window --move rel:0:10
+shift + ctrl - left : yabai -m window --warp west || $(yabai -m window --display west && yabai -m display --focus west) || yabai -m window --move rel:0:10
 
-shift + alt - l : yabai -m window --warp east || $(yabai -m window --display east && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
+shift + ctrl - right : yabai -m window --warp east || $(yabai -m window --display east && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
 
 # move window and split
-ctrl + alt - j : yabai -m window --warp south
-ctrl + alt - k : yabai -m window --warp north
-ctrl + alt - h : yabai -m window --warp west
-ctrl + alt - l : yabai -m window --warp east
+ctrl + alt - up : yabai -m window --warp north
+ctrl + alt - down: yabai -m window --warp south
+ctrl + alt - left : yabai -m window --warp west
+ctrl + alt - right : yabai -m window --warp east
 
 # move window to display left and right
 shift + alt - g : yabai -m window --display west; yabai -m display --focus west;
@@ -57,6 +57,15 @@ shift + alt - 4 : yabai -m window --space 4;
 shift + alt - 5 : yabai -m window --space 5;
 shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
+
+# shift focus to space # 
+ctrl - 1 : yabai -m space --focus 1;
+ctrl - 2 : yabai -m space --focus 2;
+ctrl - 3 : yabai -m space --focus 3;
+ctrl - 4 : yabai -m space --focus 4;
+ctrl - 5 : yabai -m space --focus 5;
+ctrl - 6 : yabai -m space --focus 6;
+ctrl - 7 : yabai -m space --focus 7;
 
 # stop/start/restart yabai
 ctrl + alt - q : yabai --stop-service

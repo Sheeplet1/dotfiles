@@ -4,6 +4,9 @@ yabai -m config layout bsp
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child
 
+# Centre mouse on window focus
+yabai -m config mouse_follows_focus on
+
 # padding set to 12px
 yabai -m config top_padding 12
 yabai -m config bottom_padding 12
@@ -33,5 +36,19 @@ yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+
+# Move some apps automatically to specific spaces 
+yabai -m rule --add app="^Alacritty$" space=^1
+yabai -m rule --add app="^MSTeams$" space=^1
+
+yabai -m rule --add app="^Vivaldi$" space=^2
+
+yabai -m rule --add app="^Spotify$" space=^3
+yabai -m rule --add app="^Obsidian$" space=^4
+yabai -m rule --add app="^Todoist$" space=^4
+
+yabai -m rule --add app="^Messages$" space=^5
+
+yabai -m rule --add app="^Microsoft Edge$" space=^6
 
 echo "yabai configuration loaded..."
