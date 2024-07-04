@@ -88,6 +88,7 @@ local mappings = {
     ----------------------------------------------------------------------------
 
     ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Open undotree" },
+    -- ["<C-n>"] = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>" },
 
     ["<leader>gg"] = { "<cmd>LazyGit<CR>", "Open LazyGit" },
 
