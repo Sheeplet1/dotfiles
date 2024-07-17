@@ -19,6 +19,9 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/.fzf/bin/fzf
 export PATH=$PATH:/home/anthony/.spicetify
 
+##################################### KEYS #####################################
+export OPENAI_API_KEY=$(pass show Keys/openai)
+
 #################################### ZINIT #####################################
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
