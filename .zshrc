@@ -21,7 +21,7 @@ export PATH=$PATH:/.fzf/bin/fzf
 export PATH=$PATH:/home/anthony/.spicetify
 
 ##################################### KEYS #####################################
-export OPENAI_API_KEY=$(pass show Keys/openai)
+export OPENAI_API_KEY=$(pass show keys/openai)
 export SUPABASE_URL=$(pass show ynafp/supabase_url)
 export SUPABASE_API=$(pass show ynafp/supabase_api)
 
