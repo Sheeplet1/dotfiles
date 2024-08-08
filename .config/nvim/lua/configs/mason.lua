@@ -1,11 +1,9 @@
 return {
   ensure_installed = {
     -- Python
-    "pyright",
+    "basedpyright",
     "debugpy",
-    "mypy",
     "ruff",
-    "black",
     "isort",
 
     -- Formatters

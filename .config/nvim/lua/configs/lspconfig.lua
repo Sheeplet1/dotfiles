@@ -13,6 +13,7 @@ local lspconfig = require "lspconfig"
 local servers = {
   -- python
   "pyright",
+  "ruff",
 
   -- frontend shenanigans
   "html",
@@ -107,6 +108,22 @@ lspconfig.gopls.setup {
       usePlaceholders = true,
       analyses = {
         unusedparams = true,
+      },
+    },
+  },
+}
+
+lspconfig.basedpyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+  settings = {
+    basedpyright = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+        typeCheckingMode = "all",
       },
     },
   },

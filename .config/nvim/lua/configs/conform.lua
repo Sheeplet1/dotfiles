@@ -13,7 +13,7 @@ local options = {
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
 
-    python = { "ruff_fix", "isort", "black" },
+    -- python = { "ruff_fix", "isort", "black", "ruff" },
     go = { "gofumpt", "goimports-reviser", "golines" },
     cpp = { "clang-format" },
   },
