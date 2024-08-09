@@ -12,7 +12,7 @@ local util = require "lspconfig/util"
 local lspconfig = require "lspconfig"
 local servers = {
   -- python
-  "pyright",
+  "basedpyright",
   "ruff",
 
   -- frontend shenanigans
