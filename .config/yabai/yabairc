@@ -43,11 +43,12 @@ yabai -m rule --add app="^MSTeams$" space=^1
 
 yabai -m rule --add app="^Vivaldi$" space=^2
 
-yabai -m rule --add app="^Spotify$" space=^3
-yabai -m rule --add app="^Obsidian$" space=^4
-yabai -m rule --add app="^Todoist$" space=^4
+yabai -m rule --add app="^Obsidian$" space=^3
+yabai -m rule --add app="^Todoist$" space=^3
 
-yabai -m rule --add app="^Messages$" space=^5
+yabai -m rule --add app="^Messages$" space=^4
+
+yabai -m rule --add app="^Spotify$" space=^5
 
 yabai -m rule --add app="^Microsoft Edge$" space=^6
 
