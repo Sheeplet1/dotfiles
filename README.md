@@ -59,3 +59,6 @@ For MacOS:
 > ln -s user.js ~/Library/Application\ Support/Firefox/Profiles/k4riv92a.default-release-1-1722038075236
 >
 > ln -s chrome ~/Library/Application\ Support/Firefox/Profiles/k4riv92a.default-release-1-1722038075236
+
+> [!WARNING]
+> The chrome folder does not symbolically link properly, need to manually copy.
