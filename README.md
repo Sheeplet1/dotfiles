@@ -38,21 +38,24 @@ then use GNU stow to create symlinks:
 
 ## Creating New Symlinks
 
-Mimic the path from the home directory to the desired file/folder to create 
+Mimic the path from the home directory to the desired file/folder to create
 a symlink of in the `dotfiles` folder.
 
 Copy the contents of that file/folder into the `dotfiles` equivalent.
 
 > stow .
 
-# NvChad
+### Shyfox
 
-For setting up a brand new Neovim config:
+Since firefox has different folder paths for my devices, its easier to manually
+make the symlinks once instead.
 
-> git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+For MacOS:
 
-Then delete the necessary folders to create symlinks.
+> [!IMPORTANT]
+> The profile name at the end could change - need to verify which folder to link to
+> in firefox's `about:profiles`.
 
-> cd ~/dotfiles && stow .
-
-
+> ln -s user.js ~/Library/Application\ Support/Firefox/Profiles/k4riv92a.default-release-1-1722038075236
+>
+> ln -s chrome ~/Library/Application\ Support/Firefox/Profiles/k4riv92a.default-release-1-1722038075236
