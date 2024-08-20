@@ -123,7 +123,7 @@ lspconfig.basedpyright.setup {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = "workspace",
-        typeCheckingMode = "all",
+        typeCheckingMode = "standard",
       },
     },
   },

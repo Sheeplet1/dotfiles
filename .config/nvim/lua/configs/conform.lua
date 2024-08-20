@@ -15,7 +15,7 @@ local options = {
 
     -- python = { "ruff_fix", "isort", "black", "ruff" },
     go = { "gofumpt", "goimports-reviser", "golines" },
-    cpp = { "clang-format" },
+    -- cpp = { "clang-format" },
   },
 
   format_on_save = {
