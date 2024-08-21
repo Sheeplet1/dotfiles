@@ -37,7 +37,7 @@ local SPACES = 4
 vim.o.tabstop = SPACES -- TAB looks like x SPACES
 vim.o.expandtab = true -- use spaces instead of TABs
 vim.o.softtabstop = SPACES -- Number of spaces inserted instead of a TAB
-vim.o.shiftwidth = SPACES -- Number of spaces when indenting
+-- vim.o.shiftwidth = SPACES -- Number of spaces when indenting
 
 ---------------------------- Highlight yanked group ----------------------------
 vim.api.nvim_create_autocmd("TextYankPost", {
