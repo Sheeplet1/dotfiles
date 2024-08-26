@@ -20,7 +20,7 @@ return {
 
         "go",
         "rust",
-        "cpp",
+        -- "cpp",
       },
     },
   },
