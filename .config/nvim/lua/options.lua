@@ -33,11 +33,15 @@ vim.o.termguicolors = true
 -- minimum number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 10
 
-local SPACES = 4
-vim.o.tabstop = SPACES -- TAB looks like x SPACES
+-- local SPACES = 4
+vim.o.tabstop = 4 -- TAB looks like x SPACES
 vim.o.expandtab = true -- use spaces instead of TABs
-vim.o.softtabstop = SPACES -- Number of spaces inserted instead of a TAB
--- vim.o.shiftwidth = SPACES -- Number of spaces when indenting
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB
+vim.o.shiftwidth = 4 -- Number of spaces when indenting
+
+-- stop swapfile
+vim.o.swapfile = false
+vim.o.backup = false
 
 ---------------------------- Highlight yanked group ----------------------------
 vim.api.nvim_create_autocmd("TextYankPost", {
