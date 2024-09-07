@@ -15,7 +15,6 @@ local options = {
 
     -- python = { "isort", "black" },
     go = { "gofumpt", "goimports", "golines" },
-    -- cpp = { "clang-format" },
   },
 
   format_on_save = {
