@@ -1,6 +1,6 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
-  opts = {
-    enabled = false,
-  },
+  -- "lukas-reineke/indent-blankline.nvim",
+  -- opts = {
+  --   enabled = false,
+  -- },
 }
