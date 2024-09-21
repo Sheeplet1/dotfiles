@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-  theme = "tokyonight",
+  theme = "rosepine",
   statusline = { theme = "minimal", separator_style = "round" },
   telescope = { style = "bordered" },
   lsp = {
