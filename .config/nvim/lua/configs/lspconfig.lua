@@ -18,7 +18,7 @@ local servers = {
   -- frontend shenanigans
   "html",
   "cssls",
-  "tsserver",
+  "ts_ls",
   "eslint",
   "tailwindcss",
 
@@ -52,7 +52,7 @@ local function organise_imports()
 end
 
 -- typescript
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
