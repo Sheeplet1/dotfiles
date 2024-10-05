@@ -2,28 +2,31 @@
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
-local M = {}
-
-M.ui = {
-  theme = "rosepine",
-  statusline = { theme = "minimal", separator_style = "round" },
-  telescope = { style = "bordered" },
-  lsp = {
-    signature = false,
+local M = {
+  base46 = {
+    theme = "rosepine",
+    integrations = {
+      "cmp",
+      "todo",
+      "telescope",
+      "rainbowdelimiters",
+      "mason",
+    },
   },
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true ,
-  -- },
-}
 
-M.base46 = {
-  integrations = {
-    "cmp",
-    "todo",
-    "telescope",
-    "rainbowdelimiters",
-    "mason",
+  ui = {
+    statusline = {
+      theme = "minimal",
+      separator_style = "round",
+    },
+
+    telescope = {
+      style = "bordered",
+    },
+
+    lsp = {
+      signature = false,
+    },
   },
 }
 
