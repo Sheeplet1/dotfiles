@@ -1,139 +1,97 @@
-local nvchad_on_attach = require("nvchad.configs.lspconfig").on_attach
+local nvlsp = require "nvchad.configs.lspconfig"
+
+local nvchad_on_attach = nvlsp.on_attach
 local on_attach = function(client, bufnr)
   nvchad_on_attach(client, bufnr)
   -- extend on_attach here
 end
 
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
-
-local util = require "lspconfig/util"
-
 local lspconfig = require "lspconfig"
+local on_init = nvlsp.on_init
+local capabilities = nvlsp.capabilities
+
+-- leaving this here incase the inline function does not work
+-- local function organise_imports()
+--   local params = {
+--     command = "_typescript.organizeImports",
+--     arguments = { vim.api.nvim_buf_get_name(0) },
+--   }
+--   vim.lsp.buf.execute_command(params)
+-- end
+
 local servers = {
-  -- python
-  "basedpyright",
-  "ruff",
+  pyright = {},
+  ruff = {},
 
-  -- frontend shenanigans
-  "html",
-  "cssls",
-  "ts_ls",
-  "eslint",
-  "tailwindcss",
+  html = {},
+  cssls = {},
+  tailwindcss = {},
 
-  -- bash
-  "bashls",
-
-  -- go
-  "gopls",
-
-  -- cpp
-  "clangd",
-}
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_init = on_init,
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
------------------------------------ frontend -----------------------------------
-
-local function organise_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
-
--- typescript
-lspconfig.ts_ls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  settings = {
-    separate_diagnostic_server = true,
-    public_diagnostic_on = "insert_leave",
-    tsserver_plugins = {},
-  },
-  commands = {
-    OrganiseImports = {
-      organise_imports,
-      description = "Organise Imports",
+  eslint = {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
     },
+    root_dir = lspconfig.util.root_pattern(
+      ".eslintrc.js",
+      ".eslintrc.json",
+      ".eslintrc.yml",
+      ".eslintrc.yaml",
+      "package.json"
+    ),
   },
-}
 
-lspconfig.eslint.setup {
-  on_attach = function(_, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end,
-  capabilities = capabilities,
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
-  root_dir = lspconfig.util.root_pattern(
-    ".eslintrc.js",
-    ".eslintrc.json",
-    ".eslintrc.yml",
-    ".eslintrc.yaml",
-    "package.json"
-  ),
-}
-
--------------------------------------- go --------------------------------------
-
-lspconfig.gopls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
+  ts_ls = {
+    settings = {
+      separate_diagnostic_server = true,
+      public_diagnostic_on = "insert_leave",
+      tsserver_plugins = {},
+    },
+    commands = {
+      OrganiseImports = {
+        (function()
+          local params = {
+            command = "_typescript.organizeImports",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+          }
+          vim.lsp.buf.execute_command(params)
+        end)(),
+        description = "Organise Imports",
       },
     },
   },
-}
 
-lspconfig.basedpyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "python" },
-  settings = {
-    basedpyright = {
-      analysis = {
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-        diagnosticMode = "workspace",
-        typeCheckingMode = "standard",
+  gopls = {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+        },
       },
+    },
+  },
+
+  clangd = {
+    cmd = {
+      "clangd",
+      "--fallback-style=webkit",
     },
   },
 }
 
-lspconfig.clangd.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {
-    "clangd",
-    "--fallback-style=webkit",
-  },
-}
+for name, opts in pairs(servers) do
+  opts.on_init = on_init
+  opts.on_attach = on_attach
+  opts.capabilities = capabilities
+
+  lspconfig[name].setup(opts)
+end

@@ -1,13 +1,11 @@
 return {
   ensure_installed = {
     -- Python
-    "basedpyright",
-    "debugpy",
+    "pyright",
     "ruff",
     "isort",
 
     -- Formatters
-    "prettier",
     "prettierd",
 
     -- Lua
@@ -36,8 +34,8 @@ return {
     -- C++
     "clangd",
     "clang-format",
-    "codelldb",
   },
+
   ui = {
     border = "rounded",
   },
