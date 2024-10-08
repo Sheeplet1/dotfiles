@@ -24,6 +24,7 @@
                 pkgs.neovim
                 pkgs.obsidian
                 pkgs.tmux
+                pkgs.wget
             ];
 
             fonts.packages = with pkgs; [
@@ -48,6 +49,7 @@
                     "zen-browser"
                     "iina"
                     "the-unarchiver"
+                    "spotify"
                 ];
                 # masApps = { 
                 #      "Yoink" = 457622435;
@@ -77,6 +79,19 @@
                     ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
                 done
             '';
+
+            system.defaults = {
+                dock.autohide = true;
+                dock.persistent-apps = [
+                    "/Applications/Zen Browser.app"
+                    "/Applications/Spotify.app"
+                    "${pkgs.alacritty}/Applications/Alacritty.app"
+                    "${pkgs.obsidian}/Applications/Obsidian.app"
+                ];
+                loginwindow.GuestEnabled = false;
+                NSGlobalDomain.AppleInterfaceStyle = "Dark";
+                NSGlobalDomain.KeyRepeat = 2;
+            };
 
             # Auto upgrade nix package and the daemon service.
             services.nix-daemon.enable = true;
