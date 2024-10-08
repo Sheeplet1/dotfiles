@@ -53,6 +53,8 @@
                 #      "Yoink" = 457622435;
                 # };
                 onActivation.cleanup = "zap";
+                onActivation.autoUpdate = true;
+                onActivation.upgrade = true;
             };
 
             # Activation Script to fix Spotlight
