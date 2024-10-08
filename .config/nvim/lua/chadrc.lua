@@ -4,7 +4,7 @@
 ---@type ChadrcConfig
 local M = {
   base46 = {
-    theme = "rosepine",
+    theme = "chadracula-evondev",
     integrations = {
       "cmp",
       "todo",
