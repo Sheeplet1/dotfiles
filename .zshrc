@@ -21,9 +21,9 @@ export PATH=$PATH:/.fzf/bin/fzf
 export PATH=$PATH:/home/anthony/.spicetify
 
 ##################################### KEYS #####################################
-export OPENAI_API_KEY=$(pass show keys/openai)
-export SUPABASE_URL=$(pass show ynafp/supabase_url)
-export SUPABASE_API=$(pass show ynafp/supabase_api)
+# export OPENAI_API_KEY=$(pass show keys/openai)
+# export SUPABASE_URL=$(pass show ynafp/supabase_url)
+# export SUPABASE_API=$(pass show ynafp/supabase_api)
 
 #################################### ZINIT #####################################
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
